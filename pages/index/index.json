@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "index" : "/pages/homepage/main/main",
+    "event" : "/pages/event/main/main",
+    "mall" : "/pages/mall/main/main",
+    "my" : "/pages/my/main/main"
+  }
+}

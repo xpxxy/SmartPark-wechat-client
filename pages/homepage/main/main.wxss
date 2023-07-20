@@ -1,0 +1,11 @@
+/* pages/homepage/main/main.wxss */
+.cu-bar{
+    
+    border-bottom: 1rpx solid;
+    border-image: linear-gradient(to right, #ffffff 3%, #e5e5e5 6%, #e5e5e5 94%, #ffffff 97%, #ffffff 100% ) 1 1;
+}
+.scroll::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+}

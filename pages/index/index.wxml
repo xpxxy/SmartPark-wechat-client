@@ -1,0 +1,37 @@
+<!--pages/index/index.wxml-->
+<!-- 根目录，挂载总体页面，包含底部navbar -->
+
+    <index wx:if="{{currentPage=='index'}}"></index>
+    <event wx:if="{{currentPage=='event'}}"></event>
+    <mall wx:if="{{currentPage=='mall'}}"></mall>
+    <my wx:if="{{currentPage=='my'}}"></my>
+
+
+<view class="cu-bar tabbar bg-white shadown foot">
+    <view class="action" bindtap="navChange" data-current-page="index">
+      <view class="cuIcon-cu-image">
+        <image src="/images/icon/index{{currentPage=='index'?'_fill':''}}.png"></image>
+      </view>
+      <view class="{{currentPage=='index'?'text-blue':'text-grey'}}">首页</view>
+    </view>
+    <view class="action" bindtap="navChange" data-current-page="event">
+      <view class="cuIcon-cu-image">
+        <image src="/images/icon/event{{currentPage=='event'?'_fill':''}}.png"></image>
+      </view>
+      <view class="{{currentPage=='event'?'text-blue':'text-grey'}}">活动</view>
+    </view>
+    <view class="action" bindtap="navChange" data-current-page="mall">
+      <view class="cuIcon-cu-image">
+        <image src="/images/icon/mall{{currentPage=='mall'?'_fill':''}}.png"></image>
+      </view>
+      <view class="{{currentPage=='mall'?'text-blue':'text-grey'}}">商城</view>
+    </view>
+    <view class="action" bindtap="navChange" data-current-page="my">
+      <view class="cuIcon-cu-image">
+        <image src="/images/icon/my{{currentPage=='my'?'_fill':''}}.png"></image>
+      </view>
+      <view class="{{currentPage=='my'?'text-blue':'text-grey'}}">首页</view>
+    </view>
+    
+</view>
+
