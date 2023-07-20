@@ -4,7 +4,18 @@
     "pages/homepage/main/main",
     "pages/event/main/main",
     "pages/mall/main/main",
-    "pages/my/main/main"
+    "pages/my/main/main",
+    "pages/homepage/quickfix/quickfix",
+    "pages/homepage/policylearn/policylearn",
+    "pages/homepage/parknote/parknote",
+    "pages/homepage/rent/rent",
+    "pages/homepage/complaint/complaint",
+    "pages/homepage/partygarden/partygarden",
+    "pages/homepage/partybuild/partybuild",
+    "pages/homepage/submithelp/submithelp",
+    "pages/homepage/supervision/supervison",
+    "pages/homepage/finance/finance",
+    "pages/homepage/registration/registration"
   ],
   "window": {
     "backgroundTextStyle": "light",

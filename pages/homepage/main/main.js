@@ -48,54 +48,60 @@ Component({
     enterpriceList: [{
       icon: 'favorfill',
       color: 'red',
-      name: '党建服务'
+      name: '党建服务',
+      link:'partybuild'
     }, {
       icon: 'comment',
       color: 'blue',
-      name: '政策研读'
+      name: '政策研读',
+      link:'policylearn'
     }, {
       icon: 'question',
       color: 'blue',
-      name: '申报辅导'
+      name: '申报辅导',
+      link:'submithelp'
     }, {
       icon: 'edit',
       color: 'blue',
-      name: '工商注册'
+      name: '工商注册',
+      link:'registration'
     }, {
       icon: 'search',
       color: 'blue',
-      name: '挂牌督导'
+      name: '挂牌督导',
+      link:'supervision'
     }, {
       icon: 'sponsor',
       color: 'blue',
-      name: '金融服务'
+      name: '金融服务',
+      link:'finance'
     }],
     fixList: [{
         icon: 'phone',
         color: 'blue',
-        name: '快速报修'
-      }, {
-        icon: 'comment',
-        color: 'blue',
-        name: '政策研读'
+        name: '快速报修',
+        link:'quickfix',
       },{
           icon:'notification',
           color: 'blue',
-          name:'园区公告'
+          name:'园区公告',
+          link:'parknote',
       },{
           icon: 'evaluate',
           color: 'blue',
-          name: '党建园地'
+          name: '党建园地',
+          link:'partygarden'
       },{
           icon:'form',
           color: 'blue',
-          name:'租办公室'
+          name:'租办公室',
+          link:'rent'
       },{
           icon:'mark',
           color:'blue',
-          name:'投诉建设'
-      }
-       ],
+          name:'投诉建设',
+          link:'complaint'
+      }],
     gridCol:3,
     skin: false,
   },
@@ -104,10 +110,5 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    DotStyle(e) {
-        this.setData({
-        DotStyle: e.detail.value
-        })
-    },
   }
 })
