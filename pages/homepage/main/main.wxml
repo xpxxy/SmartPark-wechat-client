@@ -1,6 +1,9 @@
 <!--pages/homepage/main/main.wxml-->
-<scroll-view class="scrollPage" scroll-y>
-    <!-- 轮播图模块 -->
+<!-- 首页组件，展示首页功能模块 -->
+
+
+<scroll-view show-scrollbar="false" enhanced="true" show-scrollbar="false" scroll-y="true" class="scrollPage">
+  <!-- 轮播图模块 -->
     <view class="margin-top-xs  margin-bottom-0 margin-lr radius shadow-warp bg-img">
         <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000"
             duration="500">
@@ -9,14 +12,17 @@
             </swiper-item>
         </swiper>
     </view>
-    <view class="cu-card dynamic shadow">
+    <!-- 所有的业务菜单 -->
+    <view class="cu-card dynamic shadow margin">
         <!-- 企业服务模块 -->
         <view class="cu-item shadow">
-            <view class="cu-bar">
+          <!-- 展示条文字 -->
+            <view class="cu-bar underline">
                 <view class="action">
                     <text class='cuIcon-titles text-blue '></text> 企业服务
                 </view>
             </view>
+            <!-- 功能宫格菜单 -->
             <view class="cu-list grid col-{{gridCol}} no-border">
                 <view class="cu-item" wx:for="{{enterpriceList}}" wx:key="link" wx:if="{{index<gridCol*2}}">
                     <navigator open-type="navigate" hover-class="none"
@@ -25,20 +31,19 @@
                         <text>{{item.name}}</text>
                     </navigator>
                 </view>
-                
             </view>
         </view>
-        <!-- 园区保修模块 -->
-        <view class="cu-item shadow">
-            <!-- 卡片上面的文字 -->
-            <view class="cu-bar solid-bottom">
+        <!-- 园区建设模块 -->
+        <view class="cu-item shadow margin-top-sm">
+            <!-- 展示条文字 -->
+            <view class="cu-bar underline">
                 <view class="action">
                     <text class='cuIcon-titles text-blue '></text> 园区建设
                 </view>
             </view>
+            <!-- 园区建设功能导航宫格菜单 -->
             <view class="cu-list grid col-{{gridCol}} no-border">
                 <view class="cu-item" wx:for="{{fixList}}" wx:key='link' wx:if="{{index<gridCol*2}}">
-                    <!-- 设定各个子页面的导航 -->
                     <navigator open-type="navigate" hover-class="none"
                         url="/pages/homepage/{{item.link}}/{{item.link}}">
                         <view class="cuIcon-{{item.icon}} text-{{item.color}}"></view>
@@ -46,10 +51,6 @@
                     </navigator>
                 </view>
             </view>
-
-
         </view>
-
-
     </view>
 </scroll-view>

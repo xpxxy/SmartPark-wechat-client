@@ -15,17 +15,18 @@
     "pages/homepage/submithelp/submithelp",
     "pages/homepage/supervision/supervison",
     "pages/homepage/finance/finance",
-    "pages/homepage/registration/registration"
+    "pages/homepage/registration/registration",
+    "pages/homepage/article/article"
   ],
   "window": {
     "backgroundTextStyle": "light",
+    "navigationStyle": "custom",
     "navigationBarBackgroundColor": "#1296db",
     "navigationBarTitleText": "智慧园区",
     "navigationBarTextStyle": "white"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "cu-custom": "/colorUI/components/cu-custom"
+    "cu-custom": "/colorui/components/cu-custom/cu-custom"
   }
 }

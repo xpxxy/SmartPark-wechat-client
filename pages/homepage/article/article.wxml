@@ -1,0 +1,41 @@
+<!--pages/template/news/news03/news03.wxml-->
+<!-- 党建服务子页面的文章详情页面（单图） -->
+<!-- 自定义导航栏 -->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">过往风采</view>
+</cu-custom>
+
+<view class="cu-timeline margin-xs radius-lg">
+  <!-- 标题 -->
+  <view class="padding-sm underline">
+    <text class="text-xxl text-bold text-black">{{article.title}}</text>
+  </view>
+  <view class="margin-top-xs">
+    <view class="padding-lr-sm">
+      <!-- 作者和时间 -->
+      <view class="text-gray text-sm cf">
+        <view class="text-lg text-grey fl">{{article.author}}</view>
+        <view class="fr">{{article.date}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="padding-sm text-lg margin-top-sm">
+    <text>{{article.brief}}</text>
+    <view class="bg-white margin-tb-sm">
+      <view class="bg-img radius" style="background-image: url({{article.imgUrl}});height: 360rpx;">
+      </view>
+    </view>
+    <!-- 文章的具体内容文字 -->
+    文章分段有待考量
+    <text user-select="true" >
+      {{article.content}}
+    </text>
+  </view>
+</view>
+
+
+
+
+ 
+
+

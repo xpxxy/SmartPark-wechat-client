@@ -1,2 +1,63 @@
 <!--pages/homepage/partybuild/partybuild.wxml-->
-<text>pages/homepage/partybuild/partybuild.wxml</text>
+<!-- 党建服务页面 -->
+
+<!-- 自定义导航栏 -->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">党建服务</view>
+</cu-custom>
+<!-- 轮播图 -->
+
+<!-- 设定样式：长滑动条，自动播放，淡入淡出动画 -->
+<swiper class=" card-swiper square-dot" circular="true" bindchange="cardSwiper" previousMargin="0.01rpx" indicator-color="#8799a3" indicator-active-color="#0081ff" autoplay="true" easing-function="easeInOutCubic">
+        <swiper-item wx:for="{{swiperPic}}" wx:key="item" class="{{cardCur==index?'cur':''}}">
+          <view class="swiper-item">
+            <image src="{{item.imgUrl}}" mode="aspectFill"></image>
+          </view>
+        </swiper-item>
+</swiper>
+<!-- 党员数据卡片 -->
+<view class="cu-card margin-top-xs ">
+    <view class="cu-item text-center">
+      <view class="cu-bar bg-white underline">
+        <view class='action'>
+          <text class='cuIcon-titles text-blue '></text> 党员数据
+        </view>
+      </view>
+      <view class="bg-white radius-df">
+        <view class="flex text-center padding-lg">
+          <view class="flex-twice text-blue text-xl">{{curMembers}}
+            <view class="margin-top-xs text-grey text-df">位党员</view>
+          </view>
+          <view class="flex-twice text-blue text-xl">{{curEvents}}
+            <view class="margin-top-xs text-grey text-df">次活动</view>
+          </view>
+          <view class="flex-twice text-blue text-xl">{{curVolunteer}}
+            <view class="margin-top-xs text-grey text-df">位员工</view>
+          </view>
+        </view>
+      </view> 
+    </view>
+</view>
+
+<!-- 文章列表 -->
+<View class="cu-bar bg-white margin-top underline">
+  <view class='action'>
+    <text class='cuIcon-titles text-blue '></text> 过往风采
+  </view>
+
+</View>
+<view class="cu-card article " wx:for="{{article}}" wx:key="id" >
+  <view class="cu-item shadow underline">
+    <navigator url="/pages/homepage/article/article?id={{item.id}} "open-type="navigate" hover-stay-time="200">
+      <view class="title">
+        <view class="text-cut">{{item.title}}</view>
+      </view>
+      <view class="content">
+        <image src="{{item.imgUrl}}" ></image>
+        <view class="desc">
+          <view class="text-content">{{item.brief}}</view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>

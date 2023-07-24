@@ -1,12 +1,16 @@
 <!--pages/index/index.wxml-->
 <!-- 根目录，挂载总体页面，包含底部navbar -->
+设定顶部自定义导航栏
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">智慧园区</view>
+</cu-custom>
+<!-- 引入4个大组件 -->
+<index wx:if="{{currentPage=='index'}}"></index>
+<event wx:if="{{currentPage=='event'}}"></event>
+<mall wx:if="{{currentPage=='mall'}}"></mall>
+<my wx:if="{{currentPage=='my'}}"></my>
 
-    <index wx:if="{{currentPage=='index'}}"></index>
-    <event wx:if="{{currentPage=='event'}}"></event>
-    <mall wx:if="{{currentPage=='mall'}}"></mall>
-    <my wx:if="{{currentPage=='my'}}"></my>
-
-
+<!-- 底部的导航栏 -->
 <view class="cu-bar tabbar bg-white shadown foot">
     <view class="action" bindtap="navChange" data-current-page="index">
       <view class="cuIcon-cu-image">
@@ -30,7 +34,7 @@
       <view class="cuIcon-cu-image">
         <image src="/images/icon/my{{currentPage=='my'?'_fill':''}}.png"></image>
       </view>
-      <view class="{{currentPage=='my'?'text-blue':'text-grey'}}">首页</view>
+      <view class="{{currentPage=='my'?'text-blue':'text-grey'}}">我的</view>
     </view>
     
 </view>

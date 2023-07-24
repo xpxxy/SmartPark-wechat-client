@@ -1,7 +1,7 @@
 /**app.wxss**/
-@import "./colorUI/main.wxss";
-@import "./colorUI/icon.wxss";
-@import "./colorUI/animation.wxss";
+@import "./colorui/main.wxss";
+@import "./colorui/icon.wxss";
+@import "./colorui/animation.wxss";
 
 
 
@@ -13,8 +13,19 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-  scrollbar-width: 10rpx;
+  
 }
-.scrollPage {
-    height: 100vh;
-  }
+.scrollPage{
+  height: 100%;
+  min-height:110vh;
+  
+}
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.underline{
+    border-bottom: 1rpx solid;
+    border-image: linear-gradient(to right, #ffffff 3%, #e5e5e5 6%, #e5e5e5 94%, #ffffff 97%, #ffffff 100% ) 1 1;
+}
