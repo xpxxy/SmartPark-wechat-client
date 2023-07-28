@@ -1,2 +1,23 @@
 <!--pages/homepage/submithelp.wxml-->
-<text>pages/homepage/submithelp.wxml</text>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">申报辅导</view>
+</cu-custom>
+<!-- 文章列表 -->
+<view class="cu-card article no-card margin-top-xs solid-bottom" wx:for="{{newsList}}" wx:key="item">
+  <view class="cu-item shadow">
+    <navigator url="/pages/homepage/article/article?id={{item.id}}"hover-class="none">
+      <view class="content">
+        <view class="desc">
+          <view class="text-black text-bold text-lg">{{item.title}}</view>
+          <view class="flex justify-between">
+            <view class="text-gray text-sm">{{item.user}}</view>
+            <view class="text-grey text-sm padding-right">{{item.date}}</view>
+          </view>
+        </view>
+        <view>
+          <image src="{{item.url}}" mode="aspectFill" class="radius" style="height: 150rpx;width: 190rpx;"></image>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>

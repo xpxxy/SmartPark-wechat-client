@@ -51,26 +51,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
-    // wx.request({
-    //   url: api.partyPic,
-    //   method:'GET',
-    //   success:(res)=>{
-    //     console.log(res)
-    //     let url =[]
-    //     url = res.data.data
-    //     this.setData({
-    //       picture: url
-    //     })
-    //     console.log(url)
-    //   }
-    // })
-      request(api.partyPic).then(res=>{
+    //设置轮播图缓存，但是微信会自动设置强缓存，
+    //所以貌似没什么用，图片的强缓存需要后端发送的请求头里多设置一个字段设置缓存时间
+    // var that =this
+    // var swiperCache = wx.getStorageSync('swiperCache')
+    // //如果有缓存直接从缓存读取，
+    // if (swiperCache){
+    //   that.setData({
+    //     swiperPic:swiperCache
+    //   })
+    // }
+    request(api.partyPic).then(res=>{
         // console.log(res.data)
-        this.setData({
-          swiperPic:res.data.data
-        })
+      this.setData({
+        swiperPic:res.data.data
       })
+      // wx.setStorageSync('swiperCache',res.data.data)
+    })
   },
 
   /**

@@ -1,2 +1,62 @@
 <!--pages/homepage/policylearn/policylearn.wxml-->
-<text>pages/homepage/policylearn/policylearn.wxml</text>
+<!-- 政策研读模块 -->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">政策研读</view>
+</cu-custom>
+
+<!-- banner -->
+<view class="cu-card flex no-card margin-xs">
+  <view class="cu-item basis-xxl">
+    <image class="radius" src="/images/learnbanner.jpeg" style="min-width: 100%;"></image>
+  </view>
+</view>
+
+<!-- 文章列表 -->
+<View class="cu-card bg-white margin-top-0 margin-xs">
+  <view class="cu-item shadow">
+    <view class="cu-bar  underline">
+      <view class="action">
+        <text class='cuIcon-titles text-blue '></text> 政策研读
+      </view>
+    </view>
+      <view class="flex nav text-center">
+      <view class="flex-sub cu-item {{0==TabCur?'text-blue cur':''}}" bindtap="tabSelect" data-id="0">
+        <text class="cuIcon-text"></text> 科技政策
+      </view>
+      <view class="flex-sub cu-item {{1==TabCur?'text-blue cur':''}}" bindtap="tabSelect" data-id="1">
+        <text class="cuIcon-text"></text> 人才政策
+      </view>
+      <view class="flex-sub cu-item {{2==TabCur?'text-blue cur':''}}" bindtap="tabSelect" data-id="2">
+        <text class="cuIcon-text"></text> 金融政策
+      </view>
+    </view>
+
+  </view>
+</View>
+<!-- 研读文章列表 -->
+<view class="cu-timeline margin-xs padding-xs " style="min-height: 70vh;">
+  <view class="cu-card article no-card margin-top solid-bottom" wx:for="{{newsList}}" wx:key="item">
+    <view class="cu-item shadow">
+      <navigator url="/pages/homepage/article/article?id={{item.id}}" open-type="navigate" hover-stay-time="200">
+        <view class="content">
+          <view class="desc">
+            <view class="text-black text-bold text-lg margin-right-xs">{{item.title}}</view>
+            <view class="flex justify-between">
+              <view class="text-gray text-sm">{{item.user}} </view>
+              <view class="text-gray text-sm padding-right">{{item.date}}</view>
+            </view>
+          </view>
+          <view>
+            <image src="{{item.url}}" mode="aspectFill" class="radius" style="height: 150rpx;width: 190rpx;"></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
+<!-- 底部提示栏 -->
+<view class="margin-top">
+  <view class="text-center padding-tb">
+    <view class="colorui-text">没有更多了</view>
+  </view>
+</view>

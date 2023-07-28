@@ -1,2 +1,24 @@
 <!--pages/homepage/registration/registration.wxml-->
-<text>pages/homepage/registration/registration.wxml</text>
+<!-- 工商注册模块 -->
+<!-- 顶部导航栏 -->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">工商注册</view>
+</cu-custom>
+<!-- 注册流程 -->
+<view class="cu-card margin-xs">
+  <view class="cu-bar bg-white radius margin-top-xs solid-bottom">
+    <view class="action">
+      <text class="cuIcon-titles text-blue"></text> 工商注册
+    </view>
+  </view>
+  <view class="cu-list grid col-2 no-border">
+    <view class="cu-item">
+      <view class="cuIcon-text text-blue"></view>
+      <text>入园注册</text>
+    </view>
+    <view class="cu-item">
+      <view class="cuIcon-text text-blue"></view>
+      <text>我的记录</text>
+    </view>
+  </view>
+</view>

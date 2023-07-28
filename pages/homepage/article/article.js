@@ -27,6 +27,7 @@ Page({
    */
   onLoad(options) {
     //设置获取id查询文章接口
+    console.log(options)
 
   },
 

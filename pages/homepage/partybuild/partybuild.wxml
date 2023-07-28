@@ -44,8 +44,7 @@
   <view class='action'>
     <text class='cuIcon-titles text-blue '></text> 过往风采
   </view>
-
-</View>
+</View> 
 <view class="cu-card article " wx:for="{{article}}" wx:key="id" >
   <view class="cu-item shadow underline">
     <navigator url="/pages/homepage/article/article?id={{item.id}} "open-type="navigate" hover-stay-time="200">
