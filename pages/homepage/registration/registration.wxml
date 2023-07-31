@@ -5,20 +5,28 @@
   <view slot="content">工商注册</view>
 </cu-custom>
 <!-- 注册流程 -->
+<!-- 导航卡片 -->
 <view class="cu-card margin-xs">
   <view class="cu-bar bg-white radius margin-top-xs solid-bottom">
     <view class="action">
       <text class="cuIcon-titles text-blue"></text> 工商注册
     </view>
   </view>
+  <!-- 两个子项目 -->
   <view class="cu-list grid col-2 no-border">
     <view class="cu-item">
-      <view class="cuIcon-text text-blue"></view>
-      <text>入园注册</text>
+      <navigator hover-class="none" url="../registration/form/form">
+        <view class="cuIcon-text text-blue"></view>
+        <text>入园注册</text>
+      </navigator>
     </view>
     <view class="cu-item">
-      <view class="cuIcon-text text-blue"></view>
-      <text>我的记录</text>
+      <navigator hover-class="none">
+        <view class="cuIcon-text text-blue"></view>
+        <text>我的记录</text>
+      </navigator>
     </view>
+
+
   </view>
 </view>

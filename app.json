@@ -16,7 +16,8 @@
     "pages/homepage/supervision/supervison",
     "pages/homepage/finance/finance",
     "pages/homepage/registration/registration",
-    "pages/homepage/article/article"
+    "pages/homepage/article/article",
+    "pages/homepage/registration/form/form"
   ],
   "window": {
     "backgroundTextStyle": "light",

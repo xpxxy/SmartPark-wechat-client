@@ -1,0 +1,88 @@
+<!--pages/homepage/registration/form/form.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">入园注册</view>
+</cu-custom>
+<view class="cu-card radius margin-xs">
+
+  <view class="cu-bar bg-white">
+    <view class="action">
+      <text class="cuIcon-titles text-blue"></text>
+      <text class="text-bold">信息填写</text>
+    </view>
+  </view>
+  <!-- 填写信息表单 -->
+  <form>
+    <view class="cu-form-group ">
+      <view class="title text-bold">公司名称</view>
+      <input class="text-right" placeholder-style="text-align:right" placeholder="请输入公司的名称" />
+    </view>
+    <view class="cu-form-group">
+      <view class="title text-bold">公司法人代表</view>
+      <input style="text-align: right" placeholder-style="text-align:right" placeholder="请输入法人代表" />
+    </view>
+    <view class="cu-form-group flex flex-wrap">
+      <view class="title text-bold basis-xxl">公司经营期限</view>
+      <view class="grid col-1 basis-xxl">
+        <view>
+          <picker mode="date" value="{{startDate}}" start="1980-01-01" end="2050-12-31" bindchange="startChange">
+            <view class="picker flex">
+              <view class="flex-sub text-left">
+                <text class="subtitle text-gray">起始时间</text>
+              </view>
+              <view class="flex-sub text-right">
+                {{form.startDate}}
+              </view>
+            </view>
+          </picker>
+        </view>
+        <view>
+          <picker mode="date" value="{{form.endDate}}" start="1980-01-01" end="2050-12-31" bindchange="endChange">
+            <view class="picker flex">
+              <view class="flex-sub text-left">
+                <text class="subtitle text-gray">终止时间</text>
+              </view>
+              <view class="flex-sub text-right">
+                {{form.endDate}}
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="cu-form-group grid col-1">
+      <view class="title text-bold">公司经营范围</view>
+      <view>
+        <textarea maxlength="200" bindblur="textareaAInput" placeholder="请输入公司的经营范围"></textarea>
+      </view>
+    </view>
+
+    <view class="cu-form-group grid col-1">
+      <view class="title text-bold">公司经营执照</view>
+      <view class="flex align-center padding-xs">
+        <view class="flex-sub text-gray margin-top-sm">
+          点击上传
+        </view>
+        <view class="flex-sub text-right text-gray ">
+          {{imgList.length}}/4
+        </view>
+    
+      </view>
+      <view class="margin-top-sm margin-bottom-lg">
+        <view class="grid col-4 grid-square flex-sub">
+        <view class="bg-img" wx:for="{{imgList}}" wx:key="item" bindtap="ViewImage" data-url="{{imgList[index]}}">
+          <image src='{{imgList[index]}}' mode='aspectFill'></image>
+          <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+            <text class="cuIcon-close"></text>
+          </view>
+        </view>
+        <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+          <text class="cuIcon-cameraadd"></text>
+        </view>
+      </view>
+      </view>
+      
+    </view>
+  </form>
+
+
+</view>
