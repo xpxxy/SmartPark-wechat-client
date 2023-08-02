@@ -1,1 +1,4 @@
 /* pages/my/main/main.wxss */
+.mainbox{
+  margin-top:-20px;
+}

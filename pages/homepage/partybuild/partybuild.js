@@ -61,7 +61,7 @@ Page({
     //     swiperPic:swiperCache
     //   })
     // }
-    request(api.partyPic).then(res=>{
+    request(api.partyPic,null,'GET').then(res=>{
         // console.log(res.data)
       this.setData({
         swiperPic:res.data.data

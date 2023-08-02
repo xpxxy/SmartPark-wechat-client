@@ -17,7 +17,8 @@
     "pages/homepage/finance/finance",
     "pages/homepage/registration/registration",
     "pages/homepage/article/article",
-    "pages/homepage/registration/form/form"
+    "pages/homepage/registration/form/form",
+    "pages/my/account/account"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,96 +1,182 @@
 // pages/homepage/registration/form/form.js
-import valid from "../../../../utils/WxValidate.js"
+import valid from "../../../../utils/WxValidate.js";
+import {request} from "../../../../utils/utils.js"
+import {formatTime} from "../../../../utils/utils.js";
+const api = require("../../../../utils/api.js");
 var today = new Date()
+let loading = false;
 Page({
   
   /**
    * 页面的初始数据
    */
   data: {
-    startdate: '',
-    enddate: '',
+    index: 0,
+    picker: ['五年','十年','二十年','长期'],
     form:{
-      companyName:'', //公司名字
-      LRName:'', //法人名字
-      startDate:'', //起始日期
-      endDate:'',  //终止日期
-      scope:'',  //经营范围
-      contact:'', //联系电话
-      licenseUrl:'' //证书的图片路径
+      name:'', //公司名字
+      legalRepresentative:'', //法人名字
+      registeredCapital:0,//注册资金
+      operatingPeriod:'',//经营期限
+      businessScope:'',  //经营范围
+      phone:0, //联系电话
+      businessLicense:'' //证书的图片路径
     },
-    imgList: [],
+    imgList: [],//临时路径
+    show: false,
+    status: '',
+    message: '',
+    time: 0,
+   
   },
-  startChange(e) {
+  PickerChange(e) {
     this.setData({
-      'form.startDate': e.detail.value
-    })
-  },
-  endChange(e) {
-    this.setData({
-      'form.endDate': e.detail.value
+      index: e.detail.value
     })
   },
   textareaAInput(e) {
     this.setData({
-      'form.scope': e.detail.value
+      'form.businessScope': e.detail.value
     })
-    console.log(this.data.form.scope)
+    // console.log(this.data.form.scope)
   },
   ChooseImage() {
     wx.chooseMedia({
-      count: 4, //文件个数
+      count: 1, //文件个数
       mediaType:['image'],
       sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
       camera:['back'], //指定使用的是后置摄像头
       sourceType: ['album','camera'], //从相册选择,相机
       //选择图片成功的回调函数
       success: (res) => {
-        console.log(res)
+        // console.log(res)
         if (this.data.imgList.length != 0) {
           this.setData({
             imgList: this.data.imgList.concat(res.tempFiles[0].tempFilePath)
           })
-          
         } else {
           this.setData({
-            imgList: this.data.imgList.concat(res.tempFiles[0].tempFilePath)
+            imgList: [res.tempFiles[0].tempFilePath]
           })
         }
-        console.log(this.data.imgList)
+        // console.log(this.data.imgList)
       }
     });
   },
+  //查看图片
   ViewImage(e) {
     wx.previewImage({
       urls: this.data.imgList,
       current: e.currentTarget.dataset.url
     });
   },
-  DelImg(e) {
-    wx.showModal({
-      title: '提示',
-      content: '确定要删除图片吗？',
-      cancelText: '取消',
-      confirmText: '确定',
-      success: res => {
-        if (res.confirm) {
-          this.data.imgList.splice(e.currentTarget.dataset.index, 1);
+  //删除图片的提示
+  showModal(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target
+    })
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+    var status =JSON.parse(e.currentTarget.dataset.status)
+    if (status){
+      this.data.imgList.splice(e.currentTarget.dataset.index, 1);
           this.setData({
             imgList: this.data.imgList
           })
-        }
-      }
+      // console.log(this.data.imgList)
+    }
+    // console.log(status)
+  },
+  //表单提交
+  submit(e){
+
+    //从storagesession里取出注册人id，由微信api提供
+      // console.log(e)
+      var sendData = this.data.form
+      sendData = Object.assign(sendData,e.detail.value)
+      console.log(sendData)
+      wx.uploadFile({
+        filePath: this.data.imgList[0],//图片路径
+        name: 'file',//key，非常关键,必填项
+        url:  api.registerPic,//上传路径
+        timeout: 2500,//超时时间
+        //回调函数
+        success: (res) => {
+          //转换数据类型
+            res = JSON.parse(res.data)
+            this.setData({
+              loadModal:false,
+            })
+            sendData.businessLicense = res.url
+            // console.log(sendData)
+            request(api.uploadInfo,sendData, "PUT").then(res=>{
+              console.log(res)
+            })
+            this.OK()
+            
+        },
+        fail: (res) => {
+          setTimeout(()=>{
+            this.setData({
+              loadModal:false
+            })
+          },800)
+          this.NO()
+        },
+        // complete: (res) => {},
+      })
+  },
+  loadModal() {
+    this.setData({
+      loadModal: true
     })
   },
+  /**
+   * 轻提示展示函数
+   */
+  setShow(status, message, time = 2000) {
+    if (loading) {
+      return
+    }
+    loading = true;
+    try {
+      this.setData({
+        status,
+        message,
+        time,
+        show: true,
+      })
+      setTimeout(() => {
+        this.setData({
+          show: false,
+        })
+        loading = false;
+      }, time)
+    } catch {
+      loading = false;
+    }
+  },
+  OK() {
+    this.setShow("success", "提交成功！");
+  },
+  NO() {
+    this.setShow("error", "提交失败！");
+  },
+
+
+
+
+
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.setData({
-      "form.startDate":today.getFullYear()+'-'+Number(today.getMonth()+1)+'-'+today.getDate(),
-      "form.endDate":today.getFullYear()+'-'+Number(today.getMonth()+1)+'-'+today.getDate()
-      
-    })
+    
   },
 
   /**

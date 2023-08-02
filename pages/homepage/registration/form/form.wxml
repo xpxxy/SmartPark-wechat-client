@@ -3,7 +3,6 @@
   <view slot="content">入园注册</view>
 </cu-custom>
 <view class="cu-card radius margin-xs">
-
   <view class="cu-bar bg-white">
     <view class="action">
       <text class="cuIcon-titles text-blue"></text>
@@ -11,78 +10,103 @@
     </view>
   </view>
   <!-- 填写信息表单 -->
-  <form>
-    <view class="cu-form-group ">
+  <form catchsubmit="submit">
+    <!-- 公司名称 -->
+    <view class="cu-form-group radius">
       <view class="title text-bold">公司名称</view>
-      <input class="text-right" placeholder-style="text-align:right" placeholder="请输入公司的名称" />
+      <input name="name" class="text-right" placeholder-style="text-align:right" placeholder="请输入公司的名称" />
     </view>
-    <view class="cu-form-group">
+    <!-- 法人代表 -->
+    <view class="cu-form-group radius">
       <view class="title text-bold">公司法人代表</view>
-      <input style="text-align: right" placeholder-style="text-align:right" placeholder="请输入法人代表" />
+      <input name="legalRepresentative" style="text-align: right" placeholder-style="text-align:right" placeholder="请输入法人代表" />
     </view>
-    <view class="cu-form-group flex flex-wrap">
-      <view class="title text-bold basis-xxl">公司经营期限</view>
-      <view class="grid col-1 basis-xxl">
-        <view>
-          <picker mode="date" value="{{startDate}}" start="1980-01-01" end="2050-12-31" bindchange="startChange">
-            <view class="picker flex">
-              <view class="flex-sub text-left">
-                <text class="subtitle text-gray">起始时间</text>
-              </view>
-              <view class="flex-sub text-right">
-                {{form.startDate}}
-              </view>
-            </view>
-          </picker>
-        </view>
-        <view>
-          <picker mode="date" value="{{form.endDate}}" start="1980-01-01" end="2050-12-31" bindchange="endChange">
-            <view class="picker flex">
-              <view class="flex-sub text-left">
-                <text class="subtitle text-gray">终止时间</text>
-              </view>
-              <view class="flex-sub text-right">
-                {{form.endDate}}
-              </view>
-            </view>
-          </picker>
-        </view>
-      </view>
+    <!-- 联系电话 -->
+    <view class="cu-form-group radius">
+      <view class="title text-bold">联系电话</view>
+      <input name="phone" style="text-align: right" placeholder-style="text-align:right" placeholder="请输入电话号码" />
     </view>
-    <view class="cu-form-group grid col-1">
+    <!-- 公司注册资金 -->
+    <view class="cu-form-group radius">
+      <view class="title text-bold">注册资金</view>
+      <input name="registeredCapital" style="text-align: right" placeholder-style="text-align:right" placeholder="请输入注册资金，单位万元" />
+    </view>
+    <!-- 经营期限 -->
+    <view class="cu-form-group radius">
+      <view class="title text-bold">经营期限</view>
+      <picker name="operatingPeriod" bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+        <view class="picker text-gray">
+          {{picker[index]}}
+        </view>
+      </picker>
+    </view>
+    <!-- 经营范围 -->
+    <view class="cu-form-group radius grid col-1">
       <view class="title text-bold">公司经营范围</view>
       <view>
-        <textarea maxlength="200" bindblur="textareaAInput" placeholder="请输入公司的经营范围"></textarea>
+        <textarea name="businessScope" maxlength="200" bindblur="textareaAInput" placeholder="请输入公司的经营范围"></textarea>
       </view>
     </view>
-
-    <view class="cu-form-group grid col-1">
+    <!-- 执照上传 -->
+    <view class="cu-form-group radius grid col-1">
       <view class="title text-bold">公司经营执照</view>
       <view class="flex align-center padding-xs">
         <view class="flex-sub text-gray margin-top-sm">
           点击上传
         </view>
         <view class="flex-sub text-right text-gray ">
-          {{imgList.length}}/4
+          {{imgList.length}}/1
         </view>
     
       </view>
       <view class="margin-top-sm margin-bottom-lg">
-        <view class="grid col-4 grid-square flex-sub">
+        <view class="grid col-2 grid-square flex-sub">
         <view class="bg-img" wx:for="{{imgList}}" wx:key="item" bindtap="ViewImage" data-url="{{imgList[index]}}">
           <image src='{{imgList[index]}}' mode='aspectFill'></image>
-          <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+          <view class="cu-tag bg-red" catchtap="showModal" data-target="del" data-index="{{index}}">
             <text class="cuIcon-close"></text>
           </view>
         </view>
-        <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+        <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
           <text class="cuIcon-cameraadd"></text>
         </view>
       </view>
       </view>
-      
+    </view>
+    <!-- 提交表单 -->
+    <view class="radius-bottom bg-white margin-0 flex flex-column padding-lg">
+         <button bindtap="loadModal" form-type="submit" class="cu-btn bg-blue shadow-blur lg">提交</button> 
     </view>
   </form>
-
-
+  <!-- 底部提示栏 -->
+  <view class="margin-top">
+    <view class="text-center padding-tb">
+      <view class="colorui-text">没有更多了</view>
+    </view>
+  </view>
+</view>
+<!-- 删除提示 -->
+<view class="cu-modal {{modalName=='del'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content text-bold">提示</view>
+    </view>
+    <view class="padding-lg bg-white text-xl text-center">
+      确定要删除这张图片吗？
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub text-blue solid-left text-bold" bindtap="hideModal" data-status="false">取消</view>
+      <view class="action margin-0 flex-sub text-grey solid-left text-bold" bindtap="hideModal" data-status="true">确认</view>
+    </view>
+  </view>
+</view>
+<!-- 上传加载 -->
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <view class='gray-text'>上传中...</view>
+</view>
+<!-- 提示 -->
+<view class="toast-fixed-center" hidden="{{!show}}" style="z-index: 99;">
+  <view class="radius-lg padding animation-slide-top text-lg {{status == 'success' ? 'bg-green light':'bg-red light'}}">
+    <text class="cuIcon-info"></text> {{message}}
+  </view>
 </view>

@@ -1,0 +1,35 @@
+<!--pages/my/account/account.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">账号设置</view>
+</cu-custom>
+<!-- 列表 -->
+<view class="cu-list menu sm-border card-menu margin-top">
+  <!-- 头像填写 -->
+  <view class="cu-item">
+    <view class="content">
+        <text>更改头像</text>
+    </view>
+    <view class="action">
+      <button class="cu-btn content" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+       <view class="cu-avatar round" style="background-image: url({{avatarUrl}});"></view>
+      </button>  
+    </view>
+  </view>
+  <!-- 昵称填写 -->
+  <view class="cu-item">
+    <view class="content">
+      <text>昵称</text>
+    </view>
+    <view class="action">
+      <input style="text-align: right;" type="nickname" placeholder="{{nickName}}"/>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content">
+      <text>园区ID</text>
+    </view>
+    <view class="action">
+      {{parkID}}
+    </view>
+  </view>
+</view>

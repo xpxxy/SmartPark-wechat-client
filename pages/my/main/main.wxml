@@ -1,3 +1,36 @@
-<!--pages/my/main/main.wxml-->
-<text>pages/my/main/main.wxml</text>
-<view></view>
+<view class="mainbox padding-xs shadow-blur bg-img" 
+      style="background-image: url(https://s1.ax1x.com/2023/08/02/pPPUfFH.jpg);background-size: 100% 100%; height: 360rpx;"
+>
+  <view class="flex padding">
+    <view class="padding-lr-xs">
+      <view class="cu-avatar lg round shadow-blur" style="background-image:url({{user.avatar}});">
+      </view>
+    </view>
+    <view class="padding-xs text-xl text-white text-bold ">
+      <view wx:if="{{loginStatus == true}}">
+        <view>你好，{{user.nickname}}</view>
+        <text class="text-xs text-white">园区ID:{{user.id}}</text>
+      </view>
+      <view wx:if="{{loginStatus == false}}">
+          <text bindtap="login">未登录/注册</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-bar margin-lr-xs margin-top-sm grid col-4 no-border bg-white radius underline">
+  <view class="action">
+    <text class="text-xl text-black">我的功能</text>
+  </view>
+</view>
+<view class="cu-list grid col-4 no-border text-black margin-lr-xs padding-bottom radius shadow-blur">
+  <view class="cu-item" wx:for="{{iconList}}" wx:key="idx" bindtap="{{item.bindtap}}">
+    <view class="cuIcon-{{item.icon}} text-{{item.color}} text-shadow" style="font-size: 56rpx;">
+    </view>
+    <text>{{item.name}}</text>
+  </view>
+</view>
+<view class="margin-top-xx">
+  <view class="text-center padding-tb">
+    <view class="colorui-text">没有更多了</view>
+  </view>
+</view>

@@ -6,7 +6,7 @@ const formatTime = date => {
   const minute = date.getMinutes()
   const second = date.getSeconds()
 
-  return `${[year, month, day].map(formatNumber).join('/')} ${[hour, minute, second].map(formatNumber).join(':')}`
+  return `${[year, month, day].map(formatNumber).join('-')} `
 }
 
 const formatNumber = n => {
@@ -14,7 +14,7 @@ const formatNumber = n => {
   return n[1] ? n : `0${n}`
 }
 //封装请求发送函数
-function request(url, data={}, method="GET") {
+function request(url, data={}, method) {
   return new Promise(function(resolve, reject) {
     wx.request({
       url: url,
@@ -39,6 +39,7 @@ function request(url, data={}, method="GET") {
     })
   })
 }
+
 module.exports = {
   formatTime,
   request
