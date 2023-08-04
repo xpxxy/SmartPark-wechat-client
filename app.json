@@ -18,7 +18,12 @@
     "pages/homepage/registration/registration",
     "pages/homepage/article/article",
     "pages/homepage/registration/form/form",
-    "pages/my/account/account"
+    "pages/my/account/account",
+    "pages/my/nickname/nickname",
+    "pages/my/bills/bills",
+    "pages/mall/category/index",
+    "pages/mall/goods/index",
+    "pages/homepage/registration/list/list"
   ],
   "window": {
     "backgroundTextStyle": "light",

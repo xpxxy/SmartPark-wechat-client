@@ -53,4 +53,9 @@
             </view>
         </view>
     </view>
+    <view class="margin-top-xx">
+      <view class="text-center padding-tb">
+        <view class="colorui-text">没有更多了</view>
+      </view>
+    </view>
 </scroll-view>

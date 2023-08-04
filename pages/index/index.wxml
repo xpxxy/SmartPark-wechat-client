@@ -5,10 +5,10 @@
   <view slot="content">智慧园区</view>
 </cu-custom>
 <!-- 引入4个大组件 -->
-<index wx:if="{{currentPage=='index'}}"></index>
-<event wx:if="{{currentPage=='event'}}"></event>
-<mall wx:if="{{currentPage=='mall'}}"></mall>
-<my wx:if="{{currentPage=='my'}}"></my>
+<index wx:if="{{currentPage=='index'}}" loginStatus="{{loginStatus}}"></index>
+<event wx:if="{{currentPage=='event'}}" loginStatus="{{loginStatus}}"></event>
+<mall wx:if="{{currentPage=='mall'}}" loginStatus="{{loginStatus}}"></mall>
+<my wx:if="{{currentPage=='my'}}" loginStatus="{{loginStatus}}"></my>
 
 <!-- 底部的导航栏 -->
 <view class="cu-bar tabbar bg-white shadown foot">

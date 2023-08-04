@@ -1,2 +1,69 @@
-<!--pages/mall/main/main.wxml-->
-<text>pages/mall/main/main.wxml</text>
+<!--index.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
+  <view slot="content">园区商城</view>
+</cu-custom>
+<view class="mainbox scrollPage bg-white">
+  <!-- 顶部搜索框 -->
+  <view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索发现更多好物" confirm-type="search" bindinput="searchIcon"></input>
+    </view>
+  </view>
+  <!-- 轮播图 -->
+  <view class="margin-sm padding-top-sm" style="margin-top: 100rpx;">
+    <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+      <swiper-item wx:for="{{goodsLists}}" wx:key="item">
+        <image class="radius" src="{{item.banner}}" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 商品分类 -->
+  <view class="cu-list grid col-5 no-border padding-top-xs">
+    <view class="cu-item" wx:for="{{iconList}}" wx:key="item" data-id="{{item.id}}" bindtap="jumpCategory">
+      <view class="flex justify-center">
+        <image class="padding-lr-xs padding-top-xs" style="height: 72rpx; width: 72rpx;" src="{{item.url}}" mode="scaleToFill"></image>
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+  <!-- 热门提示 -->
+  <view class="tips-box">
+    <swiper class="tips-new-swiper bg-orange light" vertical="true" autoplay="true" circular="true" interval="3000" duration="500" display-multiple-items='1' easing-function="easeInOutCubic">
+      <block wx:for-index="idx" wx:for='{{tipsList}}' wx:key="item">
+        <swiper-item>
+          <view class="padding-left-sm">
+            <text class='cuIcon-magic text-orange'> {{item.text}}</text>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 首页商品 -->
+  <view style="margin-top: 1rpx;" wx:for="{{goodsLists}}" wx:key="item">
+    <!-- 类别 -->
+    <view class="padding-sm">
+      <view class="cu-bar flex justify-center bg-gray radius-df">
+        <view class="action sub-title">
+          <text class="text-xl text-bold text-gray">{{item.name}}</text>
+          <text class="bg-grey"></text>
+        </view>
+      </view>
+    </view>
+    <!-- 商品 -->
+    <view class="cu-list grid col-3 no-border">
+      <view class="cu-item" wx:for="{{item.goodsList}}" wx:key="item" bindtap="jumpPage">
+        <view class="padding-lr-sm">
+          <image class="bg-gray radius" style="height: 220rpx;" src="{{item.url}}" mode="scaleToFill"></image>
+          <text class="text-left text-cut" style="margin-top: 0rpx;width: 210rpx;">{{item.name}}</text>
+          <text class="text-left" style="color: #e54d42; margin-top: 0rpx;">￥{{item.price}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<view class="text-center padding-tb">
+  <view class="colorui-text">没有更多了</view>
+</view>

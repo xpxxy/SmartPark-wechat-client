@@ -1,0 +1,27 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">入园注册</view>
+</cu-custom>
+<view class="cu-card">
+  <view class="cu-bar bg-white radius margin-top-xs solid-bottom">
+    <view class="action">
+      <text class="cuIcon-titles text-blue"></text> 申请列表
+    </view>
+  </view>
+  
+</view>
+<view class="table">
+  <block>
+    <view class="flex-sub">
+      <view class="table-tr text-bold" wx:for="{{header}}" wx:key="item">
+        <view class="table-th">{{item.company}}</view>
+        <view class="table-th">{{item.LR}}</view>
+        <view class="table-th">{{item.time}}</view>
+      </view>
+      <view class="table-tr" wx:for="{{list}}" wx:key="item">
+        <view class="table-th">{{item.name}}</view>
+        <view class="table-th">{{item.legalRepresentative}}</view>
+        <view class="table-th">{{item.addTime}}</view>
+      </view>
+    </view>
+  </block>
+</view>

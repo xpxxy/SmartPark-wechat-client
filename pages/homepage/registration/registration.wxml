@@ -21,7 +21,7 @@
       </navigator>
     </view>
     <view class="cu-item">
-      <navigator hover-class="none">
+      <navigator hover-class="none" url="../registration/list/list">
         <view class="cuIcon-text text-blue"></view>
         <text>我的记录</text>
       </navigator>

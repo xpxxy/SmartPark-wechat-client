@@ -1,9 +1,7 @@
 // pages/homepage/registration/form/form.js
-import valid from "../../../../utils/WxValidate.js";
+
 import {request} from "../../../../utils/utils.js"
-import {formatTime} from "../../../../utils/utils.js";
 const api = require("../../../../utils/api.js");
-var today = new Date()
 let loading = false;
 Page({
   
@@ -93,7 +91,6 @@ Page({
   //表单提交
   submit(e){
 
-    //从storagesession里取出注册人id，由微信api提供
       // console.log(e)
       var sendData = this.data.form
       sendData = Object.assign(sendData,e.detail.value)
@@ -112,7 +109,10 @@ Page({
             })
             sendData.businessLicense = res.url
             // console.log(sendData)
-            request(api.uploadInfo,sendData, "PUT").then(res=>{
+            let header ={}
+            header['content-type'] = 'application/json'
+            header['satoken'] = wx.getStorageSync('satoken')
+            request(api.uploadInfo,sendData, "PUT", header).then(res=>{
               console.log(res)
             })
             this.OK()

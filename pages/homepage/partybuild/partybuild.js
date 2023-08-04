@@ -17,26 +17,26 @@ Page({
       id: 1123,
       title: '党员干部，干出风采！',
       content: '我是测试内容，请删掉我。我是测试内容，请删掉我。我是测试内容，请删掉我。我是测试内容，请删掉我。我是测试内容，请删掉我。',
-      imgUrl: 'https://image.meiye.art/FlqKg5bugFQD5Qzm_QhGM7ET4Mtx?imageMogr2/thumbnail/450x/interlace/1',
+      imgUrl: 'https://s1.ax1x.com/2023/08/04/pPFo49H.png',
       brief: '党员干部实干出风采',
       date: '2022-2-3',
       author: 'test1'
     },
     {
       id: 23132,
-      title: '党员干部，干出风采！',
+      title: '平安建设活动',
       content: 'nullnullnullnullnullnull',
-      imgUrl: 'https://image.meiye.art/FlqKg5bugFQD5Qzm_QhGM7ET4Mtx?imageMogr2/thumbnail/450x/interlace/1',
-      brief: '党员干部实干出风采',
+      imgUrl: 'https://img1.baidu.com/it/u=15210365,2703106766&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+      brief: '8月25日上午，示范区管委会主任肖文兴，区党工委委员、管委会副主任梁中贤、区建设局局长闫战胜等...一行到城西办事处新西门社区调研老旧小区改造工作进展情况。城西街道党工委书记魏宁波、主任侯世强、副主任陈德宗陪同。',
       date: '2022-2-3',
       author: 'test1'
     },
     {
       id: 3,
-      title: '党员干部，干出风采！',
+      title: '责任区创建专题研讨会',
       content: 'nullnullnullnullnullnull',
-      imgUrl: 'https://image.meiye.art/FlqKg5bugFQD5Qzm_QhGM7ET4Mtx?imageMogr2/thumbnail/450x/interlace/1',
-      brief: '党员干部实干出风采',
+      imgUrl: 'https://img1.baidu.com/it/u=1328511155,3674401884&fm=253&fmt=auto&app=138&f=JPEG?w=689&h=500',
+      brief: '为强化党建工作与生产经营工作的深度融合，解决新能源公司点多面广战线长带来的党建工作不均衡问题。9月10日，大唐新能源公司组织14名党支部书记到“党员责任区”试点锐驰党支部进行调研学习。',
       date: '2022-2-3',
       author: 'test1'
     }]
@@ -61,7 +61,7 @@ Page({
     //     swiperPic:swiperCache
     //   })
     // }
-    request(api.partyPic,null,'GET').then(res=>{
+    request(api.partyPic,null,'GET',{"content-type":"application/x-www-form-urlencoded"}).then(res=>{
         // console.log(res.data)
       this.setData({
         swiperPic:res.data.data

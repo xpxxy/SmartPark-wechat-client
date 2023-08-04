@@ -1,1 +1,4 @@
 /* pages/mall/main/main.wxss */
+.mainbox{
+  margin-top: -32%;
+}

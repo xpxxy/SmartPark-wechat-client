@@ -8,11 +8,11 @@
     </view>
     <view class="padding-xs text-xl text-white text-bold ">
       <view wx:if="{{loginStatus == true}}">
-        <view>你好，{{user.nickname}}</view>
+        <view>你好，{{user.nickName}}</view>
         <text class="text-xs text-white">园区ID:{{user.id}}</text>
       </view>
       <view wx:if="{{loginStatus == false}}">
-          <text bindtap="login">未登录/注册</text>
+        <text bindtap="showModal" data-target="bottomModal">未登录/注册</text>
       </view>
     </view>
   </view>
@@ -32,5 +32,19 @@
 <view class="margin-top-xx">
   <view class="text-center padding-tb">
     <view class="colorui-text">没有更多了</view>
+  </view>
+</view>
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white">
+      <text class="action cuIcon-close text-red" bindtap="hideModal"></text>
+      <!-- <view class="action text-blue" bindtap="hideModal">取消</view> -->
+    </view>
+    <view class="padding-xl">
+      <view class="cu-item flex flex-column"> 
+        <button class="cu-btn bg-green margin-tb-sm lg basis" bindtap="mylogin"><text class="margin-right-xs icon-wechat"></text>微信一键登录</button>
+      </view>
+    </view>
   </view>
 </view>

@@ -1,0 +1,78 @@
+<!--pages/ucenter/myorder/index.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">全部订单</view>
+</cu-custom>
+
+<view class="box" style="top: {{CustomBar}}px; min-height: 100vh;">
+
+  <scroll-view scroll-x class="bg-white nav">
+    <view class="flex text-center">
+      <view class="cu-item flex-sub {{index==TabCur?'text-blue cur':''}}" wx:for="{{SortMenu}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}">
+        {{item.name}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="margin-sm bg-white radius-lg padding-xs">
+    <view class="padding-top-sm">
+      <text class="padding-lr-sm text-lg text-black text-bold">北岛自营店</text>
+      <navigator open-type="navigate" hover-class='none' url="/pages/goods/index">
+        <view class="flex padding-sm justify-between bg-white">
+          <view class="flex justify-center">
+            <view class="bg-img radius margin-lr-xs" style="background-image: url('http://yanxuan.nosdn.127.net/9331158a10c79a0663e53865cd1689ec.jpg');height: 140rpx; width: 120rpx;">
+            </view>
+            <view class="text-black margin-left-sm">
+              <view class="text-left margin-top-xs">
+                <text class="text-black text-lg">简约风小台灯</text>
+              </view>
+              <view class="text-left margin-top-xs">
+                <text class="text-sm">共 1 件</text>
+              </view>
+              <view class="text-left margin-top-xs">
+                <text class="text-red text-price">10.00</text>
+              </view>
+            </view>
+          </view>
+          <view class="margin-left-sm text-xl flex justify-center align-center" style="width: 40rpx;">
+            <view class="cuIcon-right"></view>
+          </view>
+        </view>
+      </navigator>
+      <navigator open-type="navigate" hover-class='none' url="/pages/goods/index">
+        <view class="flex padding-sm justify-between bg-white">
+          <view class="flex justify-center">
+            <view class="bg-img radius margin-lr-xs" style="background-image: url('http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png');height: 140rpx; width: 120rpx;">
+            </view>
+            <view class="text-black margin-left-sm">
+              <view class="text-left margin-top-xs">
+                <text class="text-black text-lg">日式和风懒人沙发</text>
+              </view>
+              <view class="text-left margin-top-xs">
+                <text class="text-sm">共 2 件</text>
+              </view>
+              <view class="text-left margin-top-xs">
+                <text class="text-red text-price">20.00</text>
+              </view>
+            </view>
+          </view>
+          <view class="margin-left-sm text-xl flex justify-center align-center" style="width: 40rpx;">
+            <view class="cuIcon-right"></view>
+          </view>
+        </view>
+      </navigator>
+      <view class="padding-lr padding-tb-xs">
+        共 3 件商品 合计：<text class="text-red text-price">30.00</text>
+      </view>
+      <view class="grid col-4 flex justify-end">
+        <view class='margin-tb-sm text-center margin-right-sm'>
+          <button class='cu-btn round line-gray shadow' data-url="/pages/ucenter/myorderdetails/index" bindtap="jumpPage">查看物流</button>
+        </view>
+        <view class='margin-tb-sm text-center margin-right-xs'>
+          <button class='cu-btn round line-red shadow' data-url="/pages/ucenter/myorderdetails/index" bindtap="jumpPage">确认收货</button>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>

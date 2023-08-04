@@ -1,0 +1,80 @@
+<!--pages/goods/index.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">商品详情</view>
+</cu-custom>
+
+<view class="scrollPage">
+
+  <view>
+    <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" style="height: 560rpx;">
+      <swiper-item wx:for="{{swiperList}}" wx:key="item">
+        <image src="{{item.url}}" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view class="bg-white solid-bottom">
+    <view class="flex padding-sm justify-between">
+      <view class="padding-xs text-xl text-black">
+        <view>简约风小台灯</view>
+        <view class="text-gray text-df padding-top-sm">北岛创意文化用品有限公司</view>
+      </view>
+      <view class="flex align-center padding-lr-sm text-lg">
+        <view class="cuIcon-share padding-right-xs text-pink"></view>
+        <text class="text-df">分享</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="bg-white solid-bottom">
+    <view class="flex padding-sm justify-between">
+      <view class="padding-xs text-xl text-black">
+        <view class="text-red">￥9.9</view>
+      </view>
+      <view class="flex align-center padding-lr-sm text-lg text-gray">
+        <text class="text-df">库存100 已售2711</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-bar grid col-4 no-border bg-white solid-bottom margin-tb-xs">
+    <view class="action">
+      <text>已选择：黑色</text>
+    </view>
+    <view class="padding-right text-right">
+      <text class="cuIcon-right"></text>
+    </view>
+  </view>
+
+  <view class="bg-white solid-bottom">
+    <view class="flex padding-sm justify-between">
+      <view class="padding-xs text-lg text-black">
+        商品详情
+      </view>
+    </view>
+  </view>
+
+  <view class="bg-white flex flex-column" wx:for="{{imgDetail}}" wx:key="item">
+    <image style="width: 100%;margin-top: -2rpx;" src="{{item}}" mode="widthFix"></image>
+  </view>
+
+  <view style="position: fixed;bottom: 0;width: 100%;">
+    <view class="cu-bar bg-white tabbar border shop margin-top-xs">
+      <view class="action">
+        <view class="cuIcon-service text-green"></view>客服
+      </view>
+      <view class="action">
+        <view class="cuIcon-shop text-pink"></view>店铺
+      </view>
+      <view class="action">
+        <view class="cuIcon-cart text-red">
+          <view class="cu-tag badge">99</view>
+        </view>
+        购物车
+      </view>
+      <view class="bg-orange submit" bindtap="jumpTab">加入购物车</view>
+      <view class="bg-red submit" bindtap="jumpPage" data-url="/pages/order/index">立即购买</view>
+    </view>
+  </view>
+
+</view>

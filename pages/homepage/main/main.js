@@ -19,31 +19,31 @@ Component({
     swiperList: [{
       id: 0,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
+      url: 'https://www.iot101.com/uploadfile/202202/29fd3587df1117.jpeg'
     }, {
       id: 1,
         type: 'image',
-        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
+        url: 'https://img-blog.csdnimg.cn/img_convert/8ebdf0da6382d98ac2d7a25169b17aff.gif',
     }, {
       id: 2,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
+      url: 'https://www.trinasolar.com/sites/default/files/styles/image_text_720x611/public/Energy2020_TrinaAuror_homepage14.jpg?itok=ZmH0r47k'
     }, {
       id: 3,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
+      url: 'https://img1.baidu.com/it/u=2331526170,2315198253&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500'
     }, {
       id: 4,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg'
+      url: 'https://s1.ax1x.com/2023/08/04/pPFoS0K.png'
     }, {
       id: 5,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big21016.jpg'
+      url: 'https://s1.ax1x.com/2023/08/04/pPFIvOx.png'
     }, {
       id: 6,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
+      url: 'https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2022%2F0324%2F0b1cf7a5j00r9983x004cd200u000gug00u000gu.jpg&thumbnail=660x2147483647&quality=80&type=jpg'
     }],
     enterpriceList: [{
       icon: 'favorfill',

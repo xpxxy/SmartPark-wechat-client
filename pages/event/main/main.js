@@ -6,7 +6,9 @@ Component({
   properties: {
 
   },
-
+  options:{
+    styleIsolation:"apply-shared"
+  },
   /**
    * 组件的初始数据
    */

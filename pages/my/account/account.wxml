@@ -11,7 +11,7 @@
     </view>
     <view class="action">
       <button class="cu-btn content" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-       <view class="cu-avatar round" style="background-image: url({{avatarUrl}});"></view>
+       <view class="cu-avatar round" style="background-image: url({{user.avatar}});"></view>
       </button>  
     </view>
   </view>
@@ -21,7 +21,9 @@
       <text>昵称</text>
     </view>
     <view class="action">
-      <input style="text-align: right;" type="nickname" placeholder="{{nickName}}"/>
+      <navigator url="/pages/my/nickname/nickname" hover-class="none">
+        <text style="text-align:right;">{{user.nickName}}</text>
+      </navigator>
     </view>
   </view>
   <view class="cu-item">
@@ -29,7 +31,10 @@
       <text>园区ID</text>
     </view>
     <view class="action">
-      {{parkID}}
+      {{user.parkID}}
     </view>
+  </view>
+  <view class="cu-item flex flex-column"> 
+    <button class="cu-btn bg-red margin-tb-sm lg basis" bindtap="mylogout">退出登录</button>
   </view>
 </view>

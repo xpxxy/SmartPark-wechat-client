@@ -1,0 +1,45 @@
+<!--pages/category/index.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="content">分类</view>
+</cu-custom>
+<view class="">
+  <view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索发现更多好物" confirm-type="search" bindinput="searchIcon"></input>
+    </view>
+  </view>
+
+  <view style="margin-top: 100rpx;">
+    <view class="flex margin-top-xs">
+      <scroll-view class="cu-vertical-nav nav cu-timeline" scroll-y scroll-with-animation scroll-top="{{cu-vertical-navTop}}" style="height:calc(100vh - {{CustomBar+50}}px)">
+        <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{categoryList}}" wx:key="item" bindtap='tabSelect' data-id="{{index}}">
+          {{item.name}}
+        </view>
+      </scroll-view>
+
+      <scroll-view class="bg-ghostWhite" scroll-y scroll-with-animation style="height:calc(100vh - {{CustomBar+50}}px)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+        <view class="padding-bottom-sm padding-lr-xs" wx:for="{{categoryList}}" wx:key="item" id="main-{{index}}">
+          <view class='cu-bar solid-bottom bg-white'>
+            <view class='action'>
+              <text class='cuIcon-title text-green'></text> {{item.name}}
+            </view>
+          </view>
+          <view class="cu-list grid col-2 no-border">
+            <view class="cu-item" wx:for="{{item.goodsList}}" wx:key="item" bindtap="jumpPage">
+              <view class="padding-lr-sm padding-top-xs">
+                <image class="bg-gray radius" style="height: 220rpx;width: 230rpx;" src="{{item.url}}" mode="scaleToFill"></image>
+                <text class="text-left text-cut" style="margin-top: 0rpx;width: 210rpx;">{{item.name}}</text>
+                <text class="text-left" style="color: #e54d42; margin-top: 0rpx;">￥{{item.price}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="text-center padding-tb">
+          <view class="colorui-text">暂无更多商品~</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+</view>
