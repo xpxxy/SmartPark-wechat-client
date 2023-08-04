@@ -19,6 +19,7 @@ Page({
   },
   submit(e) {
     const params = e.detail.value
+    //表单验证
     if (!this.WxValidate.checkForm(params)) {
       const error = this.WxValidate.errorList[0];
       wx.showModal({
