@@ -63,7 +63,7 @@ Component({
       icon: 'servicefill',
       color: 'blue',
       name: '我的报修',
-      bindtap: "bindZan"
+      bindtap: "myfix"
     }, {
       icon: 'writefill',
       color: 'blue',
@@ -96,6 +96,19 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    myfix(){
+      var satoken = wx.getStorageSync('satoken')
+      if (satoken){
+        wx.navigateTo({
+          url:'/pages/my/myfix/myfix'
+        })
+      }else if(!satoken){
+        wx.showToast({
+          title: '您还没有登录',
+          icon: 'error',
+        })
+      }
+    },
     mypage() {
       var token = wx.getStorageSync('satoken')
       if (token) {

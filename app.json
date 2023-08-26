@@ -23,7 +23,8 @@
     "pages/my/bills/bills",
     "pages/mall/category/index",
     "pages/mall/goods/index",
-    "pages/homepage/registration/list/list"
+    "pages/homepage/registration/list/list",
+    "pages/my/myfix/myfix"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -13,4 +13,5 @@ module.exports= {
   uploadAvatar:wxApiRoot+'/smartpark/wx/userAvatar',//用户上传自定义头像
   quicfix:wxApiRoot+'/smartpark/wx/repair',//快速保修发送接口
   getRegistrationList:wxApiRoot+'/smartpark/wx/businessRegistration',//查询用户的工商申请的表格
+  getFixList:wxApiRoot+'/smartpark/wx/repair',//查询快速保修的表单
 }

@@ -1,6 +1,5 @@
-const api = require("../../../../utils/api")
-
-// pages/homepage/registration/list/list.js
+// pages/my/myfix/myfix.js
+const api = require("../../../utils/api.js")
 Page({
 
   /**
@@ -8,9 +7,9 @@ Page({
    */
   data: {
     header: [{
-      company: '公司名称',
-      LR: '法人',
-      time:'时间'
+      company: '维修园区',
+      LR: '维修区域',
+      time:'维修内容'
     }],
   },
 
@@ -19,14 +18,13 @@ Page({
    */
   onLoad(options) {
     wx.request({
-      url: api.getRegistrationList+'?pageNum=1&pageSize=5',
+      url: api.getFix+'?pageNum=1&pageSize=5',
       method:'GET',
       header:{
         'satoken':wx.getStorageSync('satoken'),
-        
       },
       success:(res)=>{
-        // console.log(res)
+        console.log(res)
         if(res.data.code == 200){
           let list=[]
           res.data.data.records.forEach(element => {
